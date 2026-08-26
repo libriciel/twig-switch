@@ -44,7 +44,6 @@ class SwitchTokenParser extends AbstractTokenParser
 
         $stream->expect(Token::BLOCK_START_TYPE);
 
-        $expressionParser = $this->parser;
         $cases = [];
         $end = false;
 
@@ -55,7 +54,8 @@ class SwitchTokenParser extends AbstractTokenParser
                 case 'case':
                     $values = [];
                     while (true) {
-                        $values[] = $expressionParser->parseExpression();
+                        $values[] = $this->parser->parseExpression(11);
+
                         // Multiple allowed values?
                         if ($stream->test(Token::OPERATOR_TYPE, 'or')) {
                             $stream->next();

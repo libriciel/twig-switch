@@ -1,5 +1,5 @@
 {
-    "name": "buzzingpixel/twig-switch",
+    "name": "libriciel/twig-switch",
     "version": "1.0.2",
     "description": "Provides a {% switch %} tag for Twig switch case statements",
     "authors": [
@@ -10,13 +10,14 @@
         }
     ],
     "require": {
-        "php": ">=7.1",
+        "php": "^8.3",
         "twig/twig": "^2.7|^3.0"
     },
     "require-dev": {
         "roave/security-advisories": "dev-master",
         "squizlabs/php_codesniffer": "^3.4",
-        "phpmd/phpmd": "^2.6"
+        "phpmd/phpmd": "^2.6",
+        "phpunit/phpunit": "^12.5"
     },
     "autoload": {
         "psr-4": {
