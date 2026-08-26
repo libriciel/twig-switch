@@ -1,6 +1,7 @@
 {
     "name": "libriciel/twig-switch",
     "version": "1.0.2",
+    "license": "Apache-2.0",
     "description": "Provides a {% switch %} tag for Twig switch case statements",
     "authors": [
         {
