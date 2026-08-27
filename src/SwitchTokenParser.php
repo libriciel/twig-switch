@@ -10,7 +10,7 @@ declare(strict_types=1);
 namespace buzzingpixel\twigswitch;
 
 use Twig\Error\SyntaxError;
-use Twig\Node\Node;
+use Twig\Node\Nodes;
 use Twig\Token;
 use Twig\TokenParser\AbstractTokenParser;
 
@@ -65,8 +65,8 @@ class SwitchTokenParser extends AbstractTokenParser
                     }
                     $stream->expect(Token::BLOCK_END_TYPE);
                     $body = $this->parser->subparse([$this, 'decideIfFork']);
-                    $cases[] = new Node([
-                        'values' => new Node($values),
+                    $cases[] = new Nodes([
+                        'values' => new Nodes($values),
                         'body' => $body
                     ]);
                     break;
@@ -88,11 +88,11 @@ class SwitchTokenParser extends AbstractTokenParser
             }
         }
 
-        $nodes['cases'] = new Node($cases);
+        $nodes['cases'] = new Nodes($cases);
 
         $stream->expect(Token::BLOCK_END_TYPE);
 
-        return new SwitchNode($nodes, [], $lineno, $this->getTag());
+        return new SwitchNode($nodes, [], $lineno);
     }
 
     public function decideIfFork(Token $token): bool
